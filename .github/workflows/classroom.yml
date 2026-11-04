@@ -17,160 +17,190 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Case 01 - File01
+      - name: Case 01 - Contoh dari soal
         id: case-01
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: Case 01 - radiasi tinggi
-          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal1 soal1.c
-          command: ./soal1
-          input: "file1.txt Jezero"
+          test-name: Case 01 - Contoh dari soal
+          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal2 soal2.c
+          command: ./soal2
+          input: |
+            5 KEY123
+            2 KEY123 dlrow
+            1 KEY123 olleh
+            3 XXX999 rahcaw
+            4 KEY123 siht
+            5 KEY12 nik
           expected-output: |
-            S03 -10.40
-            S01 -15.20
-            S04 -18.00
-            AVERAGE -14.53
+            hello world this
+            LENGTH 14
           comparison-method: exact
           timeout: 2
           max-score: 5
 
-      - name: Case 02 - suhu karantina
+      - name: Case 02 - Semua paket valid, input berurutan
         id: case-02
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: Case 02 - File02
-          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal1 soal1.c
-          command: ./soal1
-          input: "file2.txt Gale"
+          test-name: Case 02 - Semua paket valid, input berurutan
+          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal2 soal2.c
+          command: ./soal2
+          input: |
+            3 ALPHA
+            1 ALPHA ytiruces
+            2 ALPHA egassem
+            3 ALPHA tset
           expected-output: |
-            S02 45.25
-            S01 30.50
-            S03 12.00
-            AVERAGE 29.25
+            security message test
+            LENGTH 19
           comparison-method: exact
           timeout: 2
           max-score: 5
 
-      - name: Case 03 - File03
+      - name: Case 03 - Semua paket valid, input terbalik
         id: case-03
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: Case 03 - File03
-          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal1 soal1.c
-          command: ./soal1
-          input: "file3.txt Hellas"
+          test-name: Case 03 - Semua paket valid, input terbalik
+          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal2 soal2.c
+          command: ./soal2
+          input: |
+            4 MARS
+            4 MARS sram
+            3 MARS erolpxe
+            2 MARS lliw
+            1 MARS revor
           expected-output: |
-            S09 10.00
-            S01 -5.00
-            S02 -5.00
-            S05 -5.00
-            AVERAGE -1.25
+            rover will explore mars
+            LENGTH 20
           comparison-method: exact
           timeout: 2
           max-score: 5
 
-      - name: Case 04 - File04
+      - name: Case 04 - Kode case-sensitive
         id: case-04
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: Case 04 - izin satu normal
-          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal1 soal1.c
-          command: ./soal1
-          input: "file4.txt Olympus"
+          test-name: Case 04 - Kode case-sensitive
+          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal2 soal2.c
+          command: ./soal2
+          input: |
+            6 Code9
+            2 code9 cba
+            1 Code9 tac
+            4 Code9 god
+            3 CODE9 zyx
+            5 Code9 nus
           expected-output: |
-            S01 -60.00
-            AVERAGE -60.00
+            cat dog sun
+            LENGTH 9
           comparison-method: exact
           timeout: 2
           max-score: 5
 
-      - name: Case 05 - File05
+      - name: Case 05 - Hanya satu paket valid
         id: case-05
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: Case 05 - izin dua lolos batas bawah jam
-          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal1 soal1.c
-          command: ./soal1
-          input: "file5.txt Tharsis"
-          expected-output: "999"
+          test-name: Case 05 - Hanya satu paket valid
+          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal2 soal2.c
+          command: ./soal2
+          input: |
+            3 SECRET
+            1 PUBLIC cba
+            2 SECRET ahpla
+            3 OPEN ateb
+          expected-output: |
+            alpha
+            LENGTH 5
           comparison-method: exact
           timeout: 2
           max-score: 5
 
-      - name: Case 06 - File06
+      - name: Case 06 - Tidak ada paket valid
         id: case-06
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: Case 06 - File06
-          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal1 soal1.c
-          command: ./soal1
-          input: "file6.txt Jezero"
-          expected-output: |
-            S03 -10.40
-            S01 -15.20
-            AVERAGE -12.80
+          test-name: Case 06 - Tidak ada paket valid
+          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal2 soal2.c
+          command: ./soal2
+          input: |
+            3 ZULU
+            1 ALFA ahpla
+            2 BRAVO ovarb
+            3 DELTA atled
+          expected-output: "000"
           comparison-method: exact
           timeout: 2
           max-score: 5
 
-      - name: Case 07 - File07 (case sensitive)
+      - name: Case 07 - Kode harus sama persis
         id: case-07
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: Case 07 - izin dua pemeriksaan karena radiasi
-          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal1 soal1.c
-          command: ./soal1
-          input: "file7.txt jezero"
+          test-name: Case 07 - Kode harus sama persis
+          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal2 soal2.c
+          command: ./soal2
+          input: |
+            4 KEY123
+            1 KEY1234 xob
+            2 KEY123 ruo
+            3 KEY12 eno
+            4 KEY123 tsil
           expected-output: |
-            S02 -12.00
-            AVERAGE -12.00
+            our list
+            LENGTH 7
           comparison-method: exact
           timeout: 2
           max-score: 5
 
-      - name: Case 08 - File08
+      - name: Case 08 - Indeks loncat, palindrom, satu huruf
         id: case-08
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: Case 08 - izin dua pemeriksaan karena jam
-          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal1 soal1.c
-          command: ./soal1
-          input: "file8.txt Jezero"
+          test-name: Case 08 - Indeks loncat, palindrom, satu huruf
+          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal2 soal2.c
+          command: ./soal2
+          input: |
+            5 PAL
+            10 PAL level
+            20 PAL a
+            15 PAL noon
+            5 PAL I
+            25 PAL rotor
           expected-output: |
-            S01 -10.00
-            S03 -20.00
-            AVERAGE -15.00
+            I level noon a rotor
+            LENGTH 16
           comparison-method: exact
           timeout: 2
           max-score: 5
 
-      - name: Case 09 - File09
+      - name: Case 09 - Edge case N = 0
         id: case-09
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: Case 09 - izin tiga lolos
-          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal1 soal1.c
-          command: ./soal1
-          input: "file9.txt Jezero"
-          expected-output: "999"
+          test-name: Case 09 - Edge case N = 0
+          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal2 soal2.c
+          command: ./soal2
+          input: "0 KEY"
+          expected-output: "000"
           comparison-method: exact
           timeout: 2
           max-score: 5
 
-      - name: Case 10 - File10
+      - name: Case 10 - Edge case N = 1
         id: case-10
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: Case 10 - izin tiga gagal
-          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal1 soal1.c
-          command: ./soal1
-          input: "file10.txt Gale"
+          test-name: Case 10 - Edge case N = 1
+          setup-command: gcc -std=c11 -O2 -Wall -Wextra -o soal2 soal2.c
+          command: ./soal2
+          input: |
+            1 A
+            1 A a
           expected-output: |
-            S03 0.50
-            S01 0.00
-            S04 0.00
-            S02 -0.50
-            AVERAGE 0.00
+            a
+            LENGTH 1
           comparison-method: exact
           timeout: 2
           max-score: 5
